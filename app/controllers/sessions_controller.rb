@@ -15,13 +15,12 @@ class SessionsController < ApplicationController
       redirect_to root_url
     else
       flash[:danger] = 'Invalid email/password combo, login failed!'
-      # binding.pry
       redirect_to login_url
     end
   end
 
   def destroy
-    binding.pry
+    # binding.pry
     log_out if logged_in?
     redirect_to root_url
   end
