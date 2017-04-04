@@ -8,16 +8,20 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:session][:email].downcase)
-    if @uer && @user.authenticate(params[:session][:password])
+    # binding.pry
+    if @user && @user.authenticate(params[:session][:password])
       log_in @user
-      redirect_to @user
-    else
-      flash[:error] = 'Login failed!'
+      remember @user # updates sessions cookies
       redirect_to root_url
+    else
+      flash[:danger] = 'Invalid email/password combo, login failed!'
+      # binding.pry
+      redirect_to login_url
     end
   end
 
   def destroy
+    binding.pry
     log_out if logged_in?
     redirect_to root_url
   end
