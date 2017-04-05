@@ -24,9 +24,12 @@ group :development, :test do
   gem 'byebug',  '~> 9.0.0', platform: :mri
 end
 
-group :development do
+group :development, :production do
   gem 'pry-rails'
   gem 'pry-byebug'
+end
+
+group :development do
   gem 'web-console',           '3.1.1'
   gem 'listen',                '3.0.8'
   gem 'spring',                '1.7.2'
