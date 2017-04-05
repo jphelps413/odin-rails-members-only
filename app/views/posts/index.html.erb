@@ -1,0 +1,11 @@
+<% provide(:title, 'Postings') %>
+<h2>Member Postings</h2>
+
+<ul class='posts'>
+  <%= render @posts %>
+</ul>
+
+<% if logged_in? %>
+  <%= link_to 'New Post', new_post_path, class: 'btn btn-members' %>
+<% end %>
+
