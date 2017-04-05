@@ -5,7 +5,7 @@
 <%= post.body %>
 <% if logged_in? %>
   <p>
-  <em>Author:</em> <%= User.find(post.user_id).name %>
+  <em>Poster:</em> <%= User.find(post.user_id).name %>
   </p>
 <% end %>
 </div>
